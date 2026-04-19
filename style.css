@@ -10,8 +10,7 @@
 * {
     margin: 0;
     padding: 0;
-    /* This is the secret to preventing elements from breaking out of the screen */
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 body {
@@ -19,8 +18,7 @@ body {
     background-color: #f0f2f5;
     color: var(--text-main);
     line-height: 1.7;
-    /* Ensures no horizontal scrolling on mobile */
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
 /* --- Hero Section --- */
@@ -29,7 +27,6 @@ body {
     color: var(--text-light);
     padding: 80px 20px;
     text-align: center;
-    /* Smooth transition for the background */
     position: relative;
 }
 
@@ -43,11 +40,19 @@ body {
     background: var(--accent-gradient);
 }
 
+/* 🔥 ADDED FIX: centers everything properly */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
 .profile-pic {
     width: 180px;
     height: 180px;
-    /* Ensures the image doesn't warp */
-    object-fit: cover; 
+    object-fit: cover;
     border-radius: 50%;
     border: 4px solid #fff;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
@@ -55,7 +60,7 @@ body {
 }
 
 .hero h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem); /* Dynamically sizes text based on screen width */
+    font-size: clamp(2rem, 5vw, 3.5rem);
     margin-bottom: 10px;
     letter-spacing: 1px;
 }
@@ -77,8 +82,7 @@ body {
 /* --- Layout & Containers --- */
 .container {
     width: 100%;
-    /* Prevents the content from getting too wide on large laptops */
-    max-width: 1200px; 
+    max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px;
 }
@@ -106,11 +110,10 @@ body {
     padding-bottom: 5px;
 }
 
-/* --- Grid Wrapper for Hobbies and Facts --- */
+/* --- Grid Wrapper --- */
 .grid-wrapper {
     display: grid;
-    /* This is the magic responsive rule! It automatically creates 1 column on phones and 2 on laptops */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
@@ -126,7 +129,6 @@ body {
     font-size: 1.05rem;
 }
 
-/* Adds a colored bullet point */
 .feature-list li::before {
     content: '→';
     position: absolute;
@@ -144,9 +146,9 @@ footer {
     font-size: 0.9rem;
 }
 
-/* --- Media Queries for extra mobile tweaking --- */
+/* --- Mobile --- */
 @media (max-width: 600px) {
     .card {
-        padding: 25px; /* Less padding on small phone screens */
+        padding: 25px;
     }
 }
